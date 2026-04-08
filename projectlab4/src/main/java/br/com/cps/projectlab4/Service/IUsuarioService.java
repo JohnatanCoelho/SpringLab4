@@ -1,8 +1,8 @@
-package br.com.cps.projectlab4.Services;
+package br.com.cps.projectlab4.Service;
 
 import java.util.List;
 
-import br.com.cps.projectlab4.entity.Usuario;
+import br.com.cps.projectlab4.Entity.Usuario;
 
 public interface IUsuarioService {
 
@@ -12,4 +12,4 @@ public interface IUsuarioService {
 
     public Usuario novoUsuario(Usuario usuario);
     
-} 
+}

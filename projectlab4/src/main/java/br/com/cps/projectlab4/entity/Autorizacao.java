@@ -1,4 +1,4 @@
-package br.com.cps.projectlab4.entity;
+package br.com.cps.projectlab4.Entity;
 
 import java.util.Set;
 
@@ -16,10 +16,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="aut_autorizacao")
 public class Autorizacao {
-    
+
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "aut_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "aut_nome")
@@ -28,7 +28,7 @@ public class Autorizacao {
     @ManyToMany(mappedBy = "autorizacoes")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Set<Usuario> usuarios;
-
+ 
     public Long getId() {
         return id;
     }
@@ -45,8 +45,8 @@ public class Autorizacao {
         this.nome = nome;
     }
 
-    public Set<Usuario> getUsuarios() {
-        return usuarios;
-    }
+    
 
+
+    
 }

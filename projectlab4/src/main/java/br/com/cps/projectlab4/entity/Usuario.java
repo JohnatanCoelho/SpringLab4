@@ -1,9 +1,7 @@
-package br.com.cps.projectlab4.entity;
+package br.com.cps.projectlab4.Entity;
 
 import java.util.Set;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -17,18 +15,18 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="usr_usuario")
+@Table(name = "usr_usuario")
 public class Usuario {
 
     @Id
-    @Column(name="usr_id")
+    @Column(name = "usr_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="usr_nome")
+    @Column(name = "usr_nome")
     private String nome;
 
-    @Column(name="usr_senha")
+    @Column(name = "usr_senha")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String senha;
 
@@ -37,12 +35,11 @@ public class Usuario {
     private Set<Anotacao> anotacoes;
 
     @ManyToMany
-    @JoinTable(name = "uau_usuario_autorizacao", 
-        joinColumns = {@JoinColumn(name = "usr_id ")},
-        inverseJoinColumns = {@JoinColumn(name="aut_id")})
+    @JoinTable(name = "uau_usuario_autorizacao",
+        joinColumns = {@JoinColumn(name="usr_id")},
+        inverseJoinColumns = {@JoinColumn(name = "aut_id")}
+    )
     private Set<Autorizacao> autorizacoes;
-
-    public Usuario(){}
 
     public Set<Anotacao> getAnotacoes() {
         return anotacoes;
@@ -60,11 +57,6 @@ public class Usuario {
         this.autorizacoes = autorizacoes;
     }
 
-    public Usuario(String nome, String senha){
-        this.nome = nome; 
-        this.senha = senha;
-    }
-
     public Long getId() {
         return id;
     }
@@ -72,18 +64,21 @@ public class Usuario {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getSenha() {
         return senha;
     }
+
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
     
 }

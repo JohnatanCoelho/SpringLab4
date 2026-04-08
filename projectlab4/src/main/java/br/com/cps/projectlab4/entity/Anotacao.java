@@ -1,6 +1,8 @@
-package br.com.cps.projectlab4.entity;
+package br.com.cps.projectlab4.Entity;
 
 import java.time.LocalDateTime;
+
+import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,15 +21,48 @@ public class Anotacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ant_id")
     private Long id;
-
+    
     @Column(name = "ant_texto")
     private String texto;
 
-    @Column(name="ant_data_hora")
+    @Column(name = "ant_data_hora")
     private LocalDateTime datahora;
-    
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ant_usr_id")
     private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public LocalDateTime getDatahora() {
+        return datahora;
+    }
+
+    public void setDatahora(LocalDateTime datahora) {
+        this.datahora = datahora;
+    }
+
 
 }

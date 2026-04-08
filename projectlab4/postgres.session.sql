@@ -37,4 +37,7 @@ values (1, 1);
 insert into ant_anotacao(ant_texto, ant_data_hora, ant_usr_id)
 values('Meu novo projeto', '2023-08-01 19:10', 1);
 
-GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE usr_usuario TO spring
+CREATE USER spring WITH PASSWORD 'spring123'
+
+GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE usr_usuario TO spring;
+
